@@ -1,25 +1,10 @@
-" Load pathogen modules
-execute pathogen#infect()
-execute pathogen#helptags()
+" Remap <LEADER> to something easier to hit
+let mapleader=","
 
 " Enable syntax highlighting
 if has('syntax') && (&t_Co > 2 || has('win32'))
     syntax on 
 endif
-
-" GVIM- (here instead of .gvimrc)
-if has('gui_running')
-    set guioptions-=T " remove the toolbar
-    set lines=40 " 40 lines of text instead of 24,
-endif
-
-" Color Scheme
-set background=dark
-let g:solarized_termtrans=1
-let g:solarized_termcolors=256
-"let g:solarized_contrast="high"
-let g:solarized_visibility="high"
-colorscheme solarized
 
 " ENVIRONMENT
 set backspace=indent,eol,start " backspace for dummys
@@ -56,3 +41,25 @@ set comments=sl:/*,mb:*,elx:*/ " auto format comment blocks
 setlocal omnifunc=syntaxcomplete#Complete " activate autocomplete (intellisense)
 set cot+=menuone " show preview of function prototype
 
+" GVIM- (here instead of .gvimrc)
+if has('gui_running')
+    set guioptions-=T " remove the toolbar
+    set lines=40 " 40 lines of text instead of 24,
+endif
+
+" BUNDLE: Load pathogen modules
+"         This must be loaded before any other bundles
+execute pathogen#infect()
+execute pathogen#helptags()
+
+" BUNDLE: Color Scheme: Solarized
+set background=dark
+let g:solarized_termtrans=1
+let g:solarized_termcolors=256
+"let g:solarized_contrast="high"
+let g:solarized_visibility="high"
+colorscheme solarized
+
+" BUNDLE: COMMAND-T
+"let g:CommandTFileScanner='find'
+let g:CommandTScanDotDirectories=1
