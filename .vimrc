@@ -61,9 +61,20 @@ let g:solarized_visibility="high"
 colorscheme solarized
 
 " BUNDLE: COMMAND-T
+nnoremap <leader>o :CommandT<CR>
 "let g:CommandTFileScanner='find'
 let g:CommandTScanDotDirectories=1
 
 " BUNDLE: Tagbar
 let g:tagbar_usearrows = 1
 nnoremap <leader>l :TagbarToggle<CR>>
+
+" BUNDLE: NERDtree
+nnoremap <leader>t :NERDTreeToggle<CR>
+
+" Open NERDtree if vim opened without any files
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+
+" Close vim if NERDtree is only window left open
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
