@@ -63,3 +63,7 @@ colorscheme solarized
 " BUNDLE: COMMAND-T
 "let g:CommandTFileScanner='find'
 let g:CommandTScanDotDirectories=1
+
+" BUNDLE: Tagbar
+let g:tagbar_usearrows = 1
+nnoremap <leader>l :TagbarToggle<CR>>
