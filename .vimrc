@@ -47,6 +47,17 @@ if has('gui_running')
     set lines=40 " 40 lines of text instead of 24,
 endif
 
+" POWERLINE: Config
+set rtp+=/usr/local/lib/python2.7/dist-packages/powerline/bindings/vim/
+
+" Always show statusline
+set laststatus=2
+
+" Use 256 colours (Use this setting only if your terminal supports 256
+" colours)
+set t_Co=256)
+
+
 " BUNDLE: Load pathogen modules
 "         This must be loaded before any other bundles
 execute pathogen#infect()
@@ -59,6 +70,7 @@ let g:solarized_termcolors=256
 "let g:solarized_contrast="high"
 let g:solarized_visibility="high"
 colorscheme solarized
+set t_Co=16
 
 " BUNDLE: COMMAND-T
 nnoremap <leader>o :CommandT<CR>
